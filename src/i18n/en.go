@@ -64,16 +64,22 @@ const (
 	VpnStartProjectsWithSameName       = "there are multiple projects with same name"
 	VpnStartDaemonIsUnavailable        = "daemon is currently unavailable, did you install it?"
 	VpnStartInstallDaemonPrompt        = "is it ok if we are going to install daemon for you?"
-	VpnStartTerminatedByUser           = "when you will be ready, try `zcli daemon install`"
+	VpnStartTerminatedByUser           = "when you will be ready, try `./zcli daemon install`"
 	VpnStartUserIsUnableToWriteYorN    = "type 'y' or 'n' please"
+	VpnStartWireguardUtunError         = "we weren't able to start vpn, there is possibility that you have another vpn, if so, try to shut it down"
+	VpnStartVpnNotReachable            = "zerops vpn servers aren't reachable"
+	VpnStartTunnelIsNotAlive           = "we weren't able to establish zerops vpn"
 
 	// vpn status
-	VpnStatusDaemonIsUnavailable  = "daemon is currently unavailable, did you install it?"
-	VpnStatusTunnelStatusActive   = "wireguard tunnel is active"
-	VpnStatusTunnelStatusInactive = "wireguard tunnel is inactive, try `startVpn` command"
-	VpnStatusDnsStatusActive      = "dns is active"
-	VpnStatusDnsStatusInactive    = "dns is inactive, we weren't able to set dns"
-	VpnStatusAdditionalInfo       = "additional info:"
+	VpnStatusDaemonIsUnavailable     = "daemon is currently unavailable, did you install it?"
+	VpnStatusTunnelStatusActive      = "wireguard tunnel is working properly"
+	VpnStatusTunnelStatusSetInactive = "wireguard tunnel is established but it isn't working properly, try `./zcli vpn start` command"
+	VpnStatusTunnelStatusUnset       = "wireguard tunnel isn't established, try `./zcli vpn start` command"
+	VpnStatusDnsStatusActive         = "dns is working properly"
+	VpnStatusDnsStatusSetInactive    = "dns is set but it isn't working properly, try `./zcli vpn start` command"
+	VpnStatusDnsStatusUnset          = "dns isn't set, try `./zcli vpn start` command"
+	VpnStatusAdditionalInfo          = "additional info:"
+	VpnStatusDnsCheckError           = "we weren't able to check that dns working correctly"
 
 	// vpn stop
 	VpnStopDaemonIsUnavailable   = "daemon is currently unavailable, did you install it?"
@@ -85,9 +91,15 @@ const (
 	DaemonInstallerDesc = "zerops daemon"
 
 	// daemon install
-	DaemonInstallSuccess = "zerops daemon has been installed"
+	DaemonInstallSuccess                 = "zerops daemon has been installed"
+	DaemonInstallWireguardNotFound       = "wireguard was not found"
+	DaemonInstallWireguardNotFoundDarwin = "wireguard was not found, try `brew install wireguard-tools`"
 
 	// daemon remove
 	DaemonRemoveStopVpnUnavailable = "zerops daemon isn't running, vpn couldn't be removed"
 	DaemonRemoveSuccess            = "zerops daemon has been removed"
+
+	// generic
+	GrpcApiTimeout    = "zerops api didn't response within assigned time, try it again later"
+	GrpcVpnApiTimeout = "zerops vpn server didn't response within assigned time, try it again later"
 )

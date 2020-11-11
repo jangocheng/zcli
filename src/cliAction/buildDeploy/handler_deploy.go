@@ -50,7 +50,7 @@ func (h *Handler) Deploy(ctx context.Context, config RunConfig) error {
 
 	temporaryShutdown := false
 	if serviceStack.GetStatus() == zeropsApiProtocol.ServiceStackStatus_SERVICE_STACK_STATUS_READY_TO_DEPLOY ||
-		serviceStack.GetStatus() == zeropsApiProtocol.ServiceStackStatus_SERVICE_STACK_STATUS_UPGRADE_FAILED {
+		serviceStack.GetStatus() == zeropsApiProtocol.ServiceStackStatus_SERVICE_STACK_STATUS_ACTION_FAILED {
 		temporaryShutdown = true
 	}
 
